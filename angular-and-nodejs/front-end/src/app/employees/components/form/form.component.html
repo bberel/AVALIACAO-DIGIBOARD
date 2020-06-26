@@ -1,0 +1,151 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+  <h4 class="text-center">Ficha Cadastral</h4>
+
+  <mat-divider></mat-divider>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>CPF *</mat-label>
+    <input matInput type="number" placeholder="CPF" formControlName="cpf" />
+    <!-- <mat-hint>Hint</mat-hint> -->
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Nome Completo *</mat-label>
+    <input
+      matInput
+      placeholder="Nome Completo"
+      formControlName="nome_completo"
+    />
+  </mat-form-field>
+
+  <label class="mr-2 mb-2">Sexo *</label>
+
+  <mat-radio-group aria-label="Sexo *" formControlName="sexo">
+    <mat-radio-button value="M">Masculino</mat-radio-button>
+    <mat-radio-button value="F">Feminino</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Nome da Mãe *</mat-label>
+    <input matInput placeholder="Nome da Mãe" formControlName="nome_mae" />
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Nacionalidade *</mat-label>
+    <input
+      matInput
+      placeholder="Nacionalidade"
+      formControlName="nacionalidade"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Data de Nascimento *</mat-label>
+    <input
+      matInput
+      type="date"
+      placeholder="DD/MM/AAAA"
+      formControlName="data_nascimento"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Cargo *</mat-label>
+    <mat-select formControlName="cargo">
+      <ng-template ngFor let-cargo [ngForOf]="cargos">
+        <mat-option [value]="cargo.id">
+          {{ cargo.descricao }}
+        </mat-option>
+      </ng-template>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Função *</mat-label>
+    <mat-select formControlName="funcao">
+      <ng-template ngFor let-funcao [ngForOf]="funcoes">
+        <mat-option [value]="funcao.id">
+          {{ funcao.descricao }}
+        </mat-option>
+      </ng-template>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Remuneração *</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="Remuneração"
+      formControlName="remuneracao"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>RG *</mat-label>
+    <input matInput type="number" placeholder="RG" formControlName="rg" />
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Orgão Emissor *</mat-label>
+    <input
+      matInput
+      placeholder="Orgão Emissor"
+      formControlName="orgao_emissor"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>E-mail *</mat-label>
+    <input matInput type="email" placeholder="E-mail" formControlName="email" />
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Telefone *</mat-label>
+    <input
+      matInput
+      type="tel"
+      placeholder="099 98877-6655"
+      formControlName="telefone"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>CTPS</mat-label>
+    <input matInput type="number" placeholder="CTPS" formControlName="ctps" />
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>PIS / PASEP</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="PIS / PASEP"
+      formControlName="pis_pasep"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Empresa *</mat-label>
+    <mat-select formControlName="empresa">
+      <ng-template ngFor let-empresa [ngForOf]="empresas">
+        <mat-option [value]="empresa.id">
+          {{ empresa.razao_social }}
+        </mat-option>
+      </ng-template>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Setor *</mat-label>
+    <mat-select formControlName="setor">
+      <ng-template ngFor let-setor [ngForOf]="setores">
+        <mat-option [value]="setor.id">
+          {{ setor.nome }}
+        </mat-option>
+      </ng-template>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">Salvar</button>
+</form>

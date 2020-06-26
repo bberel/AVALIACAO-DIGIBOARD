@@ -1,0 +1,36 @@
+<mat-card class="mb-2">
+  <mat-card-subtitle>
+    Quantidade de Colaboradores
+  </mat-card-subtitle>
+
+  <mat-card-content>
+    <p class="info">
+      <mat-icon>group</mat-icon>
+      <span class="number">
+        {{ numero_colaboradores }}
+      </span>
+    </p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="mb-2">
+  <mat-card-subtitle>
+    Colaboradores por Cargos
+  </mat-card-subtitle>
+
+  <mat-card-content>
+    <div class="mb-2" *ngFor="let item of cargos">
+      <div class="d-flex justify-between">
+        <div class="d-inline">{{ item.descricao }}</div>
+        <div class="d-inline">
+          <span class="mr-2">{{ item.quantidade_colaboradores }}</span>
+          <span class="info">{{ (item.quantidade_colaboradores / numero_colaboradores) * 100 }} %</span>
+        </div>
+      </div>
+      <mat-progress-bar
+        mode="determinate"
+        [value]="(item.quantidade_colaboradores / numero_colaboradores) * 100"
+      ></mat-progress-bar>
+    </div>
+  </mat-card-content>
+</mat-card>

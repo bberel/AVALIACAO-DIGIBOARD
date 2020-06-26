@@ -1,0 +1,160 @@
+<mat-card class="mb-2">
+  <mat-card-subtitle>
+    Filtro
+  </mat-card-subtitle>
+
+  <mat-card-content>
+    <form [formGroup]="filtro" (ngSubmit)="naoFinalizado()">
+      <mat-form-field class="mr-2" appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="Nome" formControlName="nome"/>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="limparCampo('nome')"
+          [attr.aria-label]="'limpar'"
+        >
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field class="mr-2" appearance="outline">
+        <mat-label>Telefone</mat-label>
+        <input matInput placeholder="Telefone" formControlName="telefone"/>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="limparCampo('telefone')"
+          [attr.aria-label]="'limpar'"
+        >
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field class="mr-2" appearance="outline">
+        <mat-label>Empresa</mat-label>
+        <input matInput placeholder="Empresa" formControlName="empresa"/>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="limparCampo('empresa')"
+          [attr.aria-label]="'limpar'"
+        >
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field class="mr-2" appearance="outline">
+        <mat-label>Setor</mat-label>
+        <input matInput placeholder="Setor" formControlName="setor"/>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="limparCampo('setor')"
+          [attr.aria-label]="'limpar'"
+        >
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field class="mr-2" appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input matInput placeholder="E-mail" formControlName="email"/>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="limparCampo('email')"
+          [attr.aria-label]="'limpar'"
+        >
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field class="mr-2" appearance="outline">
+        <mat-label>Cargo</mat-label>
+        <input matInput placeholder="Cargo" formControlName="cargo"/>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="limparCampo('cargo')"
+          [attr.aria-label]="'limpar'"
+        >
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary">Aplicar</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<table mat-table [dataSource]="collaborators" matSort class="w-100">
+  <ng-container matColumnDef="cpf">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>CPF</th>
+    <td mat-cell *matCellDef="let item">{{ item.cpf }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="nome_completo">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>Nome</th>
+    <td mat-cell *matCellDef="let item">{{ item.nome_completo }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="contact">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>Contato</th>
+    <td mat-cell *matCellDef="let item">
+      <div>{{ item.telefone }}</div>
+      <div>{{ item.email }}</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="empresa">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>Empresa</th>
+    <td mat-cell *matCellDef="let item">{{ item.empresa.razao_social }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="setor">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>Setor</th>
+    <td mat-cell *matCellDef="let item">{{ item.setor.nome }}</td>
+  </ng-container>
+
+  <!-- <ng-container matColumnDef="email">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>E-mail</th>
+    <td mat-cell *matCellDef="let item">{{ item.email }}</td>
+  </ng-container> -->
+
+  <ng-container matColumnDef="cargo">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>Cargo</th>
+    <td mat-cell *matCellDef="let item">{{ item.cargo.descricao }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let item">
+      <a
+        mat-mini-fab
+        color="basic"
+        aria-label="Edit Button"
+        [routerLink]="['/collaborators/edit', item.id]"
+      >
+        <mat-icon>edit</mat-icon>
+      </a>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let item">
+      <button
+        mat-mini-fab
+        color="warn"
+        aria-label="Delete Button"
+        (click)="deleteCollaborator(item.id)"
+      >
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

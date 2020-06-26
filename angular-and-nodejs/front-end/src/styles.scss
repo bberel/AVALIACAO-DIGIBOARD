@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+mat-form-field.mat-form-field {
+  .mat-form-field-wrapper {
+    padding-bottom: 0.9em;
+  }
+}
+
+mat-radio-group.mat-radio-group {
+  .mat-radio-button {
+    margin-left: 4px;
+    padding-bottom: 0.9em;
+  }
+}
+
+.mat-drawer-content {
+  overflow: scroll !important;
+}
+
+.mt-2 {
+  margin-top: 1em;
+}
+
+.ml-2 {
+  margin-left: 8px;
+}
+
+.mr-2 {
+  margin-right: 8px;
+}
+
+.mb-1 {
+  margin-bottom: 0.75em;
+}
+
+.mb-2 {
+  margin-bottom: 1em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-inline {
+  display: inline;
+}
+
+.justify-between {
+  justify-content: space-between;
+}

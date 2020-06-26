@@ -1,0 +1,30 @@
+.header {
+    background-color: #1976D2;
+    color: #fff;
+}
+
+.container {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.sidenav {
+    width: 264px;
+    // padding-bottom: 16px;
+    
+    .nav-item {
+        padding: 16px 20px;
+        display: block;
+    }
+
+    .nav-item-active {
+        background-color: #cecece;
+    }
+}
+
+.content {
+    padding: 16px;
+}
