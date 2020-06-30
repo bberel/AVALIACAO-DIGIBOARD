@@ -68,12 +68,12 @@
                                     <?= $colaborador->cargo->descricao ?>
                                 </td>
                                 <td>
-                                    <a href="/collaborators/edit" class="btn">
+                                    <a href="/collaborators/edit?id=<?= $colaborador->id ?>" class="btn">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="/collaborators/del" class="btn btn-danger">
+                                    <a href="/collaborators/handles/delete-collaborator.php?id=<?= $colaborador->id ?>" class="btn btn-danger">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </td>
